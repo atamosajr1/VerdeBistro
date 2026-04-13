@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Verde Bistro & Café | Fresh. Local. Delicious.</title>
+  <meta name="description" content="Verde Bistro & Café serves farm-to-table cuisine in the heart of Austin. Fresh seasonal menus, craft coffee, and warm hospitality since 2018."/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #3a6b35;
+      --green-dark: #2a4f27;
+      --green-light: #f0f5ee;
+      --gold: #c8973a;
+      --text: #1e1e1e;
+      --text-muted: #666;
+      --white: #ffffff;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: #fff; }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px); z-index: 100; border-bottom: 1px solid #e8e8e8;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; height: 70px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo .logo-icon {
+      width: 40px; height: 40px; background: var(--green);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo .logo-icon i { color: #fff; font-size: 16px; }
+    .nav-logo span { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--green-dark); font-weight: 700; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--text); font-size: 14px; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--green); }
+    .nav-cta {
+      background: var(--green); color: #fff; padding: 10px 22px;
+      border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 600;
+      transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--green-dark); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 92vh; position: relative; display: flex; align-items: center;
+      background: linear-gradient(135deg, #1a3a17 0%, #2d5a28 50%, #1e4a1a 100%);
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&q=80') center/cover no-repeat;
+      opacity: 0.35;
+    }
+    .hero-content {
+      position: relative; max-width: 1200px; margin: 0 auto; padding: 80px 24px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    .hero-text { color: #fff; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(200,151,58,.2); border: 1px solid rgba(200,151,58,.4);
+      color: #e8b85a; padding: 6px 14px; border-radius: 20px;
+      font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-title { font-size: clamp(38px, 5vw, 64px); line-height: 1.1; margin-bottom: 20px; }
+    .hero-title span { color: var(--gold); }
+    .hero-sub { font-size: 18px; line-height: 1.7; color: rgba(255,255,255,.8); margin-bottom: 36px; max-width: 480px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gold); color: #fff; padding: 14px 30px;
+      border-radius: 6px; font-weight: 600; text-decoration: none; font-size: 15px;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,151,58,.4); }
+    .btn-ghost {
+      border: 2px solid rgba(255,255,255,.5); color: #fff; padding: 14px 30px;
+      border-radius: 6px; font-weight: 600; text-decoration: none; font-size: 15px;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,.1); }
+    .hero-card {
+      background: rgba(255,255,255,.95); border-radius: 16px; padding: 32px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.3);
+    }
+    .hero-card h3 { font-size: 22px; color: var(--green-dark); margin-bottom: 18px; }
+    .hours-list { list-style: none; }
+    .hours-list li {
+      display: flex; justify-content: space-between; padding: 10px 0;
+      border-bottom: 1px solid #f0f0f0; font-size: 14px;
+    }
+    .hours-list li:last-child { border-bottom: none; }
+    .hours-list .day { font-weight: 600; color: var(--text); }
+    .hours-list .time { color: var(--green); font-weight: 500; }
+    .hero-card-footer {
+      margin-top: 20px; padding-top: 20px; border-top: 1px solid #f0f0f0;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-card-footer i { color: var(--green); }
+    .hero-card-footer span { font-size: 14px; color: var(--text-muted); }
+
+    /* ── SECTION HEADER ── */
+    .section-header { text-align: center; margin-bottom: 52px; }
+    .section-tag {
+      display: inline-block; color: var(--green); font-size: 12px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;
+    }
+    .section-title { font-size: clamp(30px, 4vw, 44px); color: var(--text); margin-bottom: 14px; }
+    .section-sub { font-size: 17px; color: var(--text-muted); max-width: 560px; margin: 0 auto; line-height: 1.7; }
+
+    /* ── STATS BAR ── */
+    .stats-bar { background: var(--green); padding: 40px 24px; }
+    .stats-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+    .stat { text-align: center; color: #fff; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700; margin-bottom: 4px; }
+    .stat-label { font-size: 14px; opacity: .85; }
+
+    /* ── FEATURES ── */
+    .features-section { padding: 100px 24px; background: var(--green-light); }
+    .features-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 30px; }
+    .feature-card {
+      background: #fff; border-radius: 14px; padding: 36px 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.06); transition: transform .25s, box-shadow .25s;
+    }
+    .feature-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,.12); }
+    .feature-icon {
+      width: 60px; height: 60px; background: var(--green-light); border-radius: 14px;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
+    }
+    .feature-icon i { color: var(--green); font-size: 24px; }
+    .feature-card h3 { font-size: 20px; margin-bottom: 10px; color: var(--green-dark); }
+    .feature-card p { font-size: 15px; line-height: 1.7; color: var(--text-muted); }
+
+    /* ── MENU ── */
+    .menu-section { padding: 100px 24px; }
+    .menu-inner { max-width: 1200px; margin: 0 auto; }
+    .menu-tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 48px; flex-wrap: wrap; }
+    .menu-tab {
+      padding: 10px 24px; border-radius: 30px; font-size: 14px; font-weight: 600;
+      cursor: pointer; border: 2px solid #e0e0e0; background: #fff; color: var(--text-muted);
+      transition: all .2s;
+    }
+    .menu-tab.active { background: var(--green); color: #fff; border-color: var(--green); }
+    .menu-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+    .menu-item {
+      display: flex; gap: 16px; padding: 20px; border-radius: 12px;
+      border: 1px solid #f0f0f0; background: #fff; transition: border-color .2s;
+    }
+    .menu-item:hover { border-color: var(--green); }
+    .menu-img {
+      width: 80px; height: 80px; border-radius: 10px; object-fit: cover; flex-shrink: 0;
+      background: #f5f5f5;
+    }
+    .menu-info { flex: 1; }
+    .menu-info h4 { font-size: 16px; margin-bottom: 5px; color: var(--text); }
+    .menu-info p { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 8px; }
+    .menu-price { font-weight: 700; color: var(--green); font-size: 16px; }
+    .menu-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .menu-tag {
+      font-size: 11px; padding: 2px 8px; border-radius: 10px;
+      background: var(--green-light); color: var(--green); font-weight: 600;
+    }
+
+    /* ── STORY ── */
+    .story-section { padding: 100px 24px; background: #fafafa; }
+    .story-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center;
+    }
+    .story-img-wrap { position: relative; }
+    .story-img {
+      width: 100%; border-radius: 16px; object-fit: cover; height: 480px;
+      background: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80') center/cover;
+    }
+    .story-badge {
+      position: absolute; bottom: -20px; right: -20px;
+      background: var(--gold); color: #fff; border-radius: 12px; padding: 20px 24px;
+      font-family: 'Playfair Display', serif; text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,.15);
+    }
+    .story-badge .num { font-size: 36px; font-weight: 700; display: block; line-height: 1; }
+    .story-badge .label { font-size: 13px; opacity: .9; }
+    .story-text .section-header { text-align: left; margin-bottom: 24px; }
+    .story-text p { font-size: 16px; line-height: 1.8; color: var(--text-muted); margin-bottom: 18px; }
+    .story-values { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
+    .story-val { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500; }
+    .story-val i { color: var(--green); }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-section { padding: 100px 24px; background: var(--green-dark); }
+    .test-inner { max-width: 1200px; margin: 0 auto; }
+    .test-inner .section-header .section-title { color: #fff; }
+    .test-inner .section-tag { color: var(--gold); }
+    .test-inner .section-sub { color: rgba(255,255,255,.7); }
+    .test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .test-card {
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 14px; padding: 30px;
+    }
+    .test-stars { color: var(--gold); margin-bottom: 14px; font-size: 14px; }
+    .test-text { font-size: 15px; line-height: 1.7; color: rgba(255,255,255,.85); margin-bottom: 20px; font-style: italic; }
+    .test-author { display: flex; align-items: center; gap: 12px; }
+    .test-avatar {
+      width: 44px; height: 44px; border-radius: 50%; object-fit: cover;
+      background: var(--green); display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 700; font-size: 16px; flex-shrink: 0;
+    }
+    .test-name { font-weight: 600; color: #fff; font-size: 14px; }
+    .test-role { font-size: 12px; color: rgba(255,255,255,.5); }
+
+    /* ── GALLERY ── */
+    .gallery-section { padding: 100px 24px; }
+    .gallery-inner { max-width: 1200px; margin: 0 auto; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      grid-template-rows: 200px 200px;
+      gap: 12px;
+    }
+    .g-item { border-radius: 12px; overflow: hidden; background: #e0e0e0; }
+    .g-item:first-child { grid-column: span 2; grid-row: span 2; }
+    .g-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+    .g-item:hover img { transform: scale(1.05); }
+
+    /* ── RESERVATION CTA ── */
+    .reservation-section { padding: 80px 24px; background: var(--green-light); }
+    .reservation-inner {
+      max-width: 800px; margin: 0 auto; background: #fff; border-radius: 20px;
+      padding: 52px; box-shadow: 0 10px 50px rgba(0,0,0,.08); text-align: center;
+    }
+    .reservation-inner h2 { font-size: 38px; margin-bottom: 12px; color: var(--green-dark); }
+    .reservation-inner p { color: var(--text-muted); font-size: 17px; margin-bottom: 36px; }
+    .res-form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .res-form input, .res-form select {
+      padding: 13px 16px; border: 2px solid #e8e8e8; border-radius: 8px;
+      font-size: 14px; font-family: 'Inter', sans-serif; outline: none;
+      transition: border-color .2s;
+    }
+    .res-form input:focus, .res-form select:focus { border-color: var(--green); }
+    .res-full { grid-column: span 2; }
+    .res-submit {
+      display: block; width: 100%; padding: 15px; background: var(--green);
+      color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 600;
+      cursor: pointer; font-family: 'Inter', sans-serif; transition: background .2s;
+    }
+    .res-submit:hover { background: var(--green-dark); }
+
+    /* ── FOOTER ── */
+    footer { background: #111; color: #aaa; padding: 60px 24px 30px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand p { font-size: 14px; line-height: 1.7; margin: 14px 0; color: #888; }
+    .footer-logo-text { font-family: 'Playfair Display', serif; font-size: 22px; color: #fff; }
+    .social-links { display: flex; gap: 12px; margin-top: 8px; }
+    .social-links a {
+      width: 36px; height: 36px; border-radius: 50%; background: #222;
+      display: flex; align-items: center; justify-content: center;
+      color: #aaa; text-decoration: none; transition: background .2s, color .2s;
+    }
+    .social-links a:hover { background: var(--green); color: #fff; }
+    .footer-col h4 { color: #fff; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 16px; letter-spacing: .5px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { color: #888; text-decoration: none; font-size: 14px; transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--green); }
+    .footer-col .contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
+    .footer-col .contact-item i { color: var(--green); margin-top: 2px; font-size: 13px; }
+    .footer-col .contact-item span { font-size: 13px; color: #888; line-height: 1.5; }
+    .footer-bottom { border-top: 1px solid #222; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom p { font-size: 13px; }
+    .footer-bottom a { color: var(--green); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-content { grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+      .stats-inner { grid-template-columns: repeat(2,1fr); }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .story-inner { grid-template-columns: 1fr; }
+      .test-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2,1fr); grid-template-rows: auto; }
+      .g-item:first-child { grid-column: span 1; grid-row: span 1; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .res-form { grid-template-columns: 1fr; }
+      .res-full { grid-column: span 1; }
+    }
+    @media (max-width: 600px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">
+      <div class="logo-icon"><i class="fas fa-leaf"></i></div>
+      <span>Verde Bistro</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#reserve" class="nav-cta">Reserve a Table</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge"><i class="fas fa-seedling"></i> Farm-to-Table Since 2018</div>
+      <h1 class="hero-title">Fresh Food,<br><span>Warm Memories</span></h1>
+      <p class="hero-sub">We source directly from local farms to bring you seasonal ingredients at their peak freshness. Every dish is crafted with love right here in Austin, TX.</p>
+      <div class="hero-btns">
+        <a href="#menu" class="btn-primary">View Our Menu</a>
+        <a href="#reserve" class="btn-ghost">Make a Reservation</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Today's Hours</h3>
+      <ul class="hours-list">
+        <li><span class="day">Monday – Tuesday</span><span class="time">Closed</span></li>
+        <li><span class="day">Wednesday – Friday</span><span class="time">11:30am – 9:00pm</span></li>
+        <li><span class="day">Saturday</span><span class="time">10:00am – 10:00pm</span></li>
+        <li><span class="day">Sunday</span><span class="time">10:00am – 4:00pm</span></li>
+      </ul>
+      <div class="hero-card-footer">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>214 South Congress Ave, Austin, TX 78704</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num">7+</div><div class="stat-label">Years Serving Austin</div></div>
+    <div class="stat"><div class="stat-num">18</div><div class="stat-label">Local Farm Partners</div></div>
+    <div class="stat"><div class="stat-num">4.9★</div><div class="stat-label">Google Rating</div></div>
+    <div class="stat"><div class="stat-num">50k+</div><div class="stat-label">Happy Guests Served</div></div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="features-section">
+  <div class="features-grid" style="max-width:1200px;margin:0 auto;">
+    <div class="section-header" style="grid-column:1/-1;">
+      <span class="section-tag">Why Verde?</span>
+      <h2 class="section-title">A Dining Experience Worth Savoring</h2>
+      <p class="section-sub">We believe great food starts long before it reaches your plate — it starts with how we source, prepare, and serve it.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fas fa-carrot"></i></div>
+      <h3>Seasonal Ingredients</h3>
+      <p>Our menu rotates every 6–8 weeks to celebrate what's freshest from our network of 18 local farms across Central Texas.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fas fa-fire"></i></div>
+      <h3>Open Kitchen</h3>
+      <p>Watch our chefs at work. Our open kitchen design lets you see every dish prepared from scratch with the same care every time.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fas fa-wine-glass"></i></div>
+      <h3>Craft Cocktails & Wine</h3>
+      <p>Curated natural wines, craft beers from Austin breweries, and house cocktails made with garden-grown herbs and local spirits.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fas fa-seedling"></i></div>
+      <h3>Zero-Waste Kitchen</h3>
+      <p>We compost 100% of our food waste, source packaging from recycled materials, and are proud to be carbon-neutral since 2022.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fas fa-mug-hot"></i></div>
+      <h3>Specialty Coffee Bar</h3>
+      <p>Our in-house café opens at 7am daily featuring single-origin espresso, cold brew, and seasonal lattes from our roaster partners.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fas fa-users"></i></div>
+      <h3>Private Events</h3>
+      <p>Host your next birthday, anniversary, or corporate dinner in our private dining room. Accommodates up to 40 guests.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <div class="menu-inner">
+    <div class="section-header">
+      <span class="section-tag">What We Serve</span>
+      <h2 class="section-title">Our Signature Menu</h2>
+      <p class="section-sub">Crafted in-house daily. Consuming raw or undercooked meats may increase your risk of foodborne illness.</p>
+    </div>
+    <div class="menu-tabs">
+      <div class="menu-tab active" data-tab="breakfast">Breakfast</div>
+      <div class="menu-tab" data-tab="lunch">Lunch</div>
+      <div class="menu-tab" data-tab="dinner">Dinner</div>
+      <div class="menu-tab" data-tab="desserts">Desserts</div>
+      <div class="menu-tab" data-tab="drinks">Drinks</div>
+    </div>
+
+    <!-- BREAKFAST -->
+    <div class="menu-grid" data-panel="breakfast">
+      <div class="menu-item">
+        <img class="menu-img" src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=200&q=80" alt="Avocado Toast"/>
+        <div class="menu-info">
+          <h4>Heirloom Avocado Toast</h4>
+          <p>Sourdough, smashed avocado, poached egg, radish, microgreens, everything bagel seasoning</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <span class="menu-price">$16</span>
+            <div class="menu-tags"><span class="menu-tag">Vegetarian</span><span class="menu-tag">Chef's Pick</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-img" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&q=80" alt="Ricotta Pancakes"/>
+        <div class="menu-info">
+          <h4>Lemon Ricotta Pancakes</h4>
+          <p>Housemade lemon curd, fresh berries, whipped mascarpone, candied pecans</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <span class="menu-price">$14</span>
+            <div class="menu-tags"><span class="menu-tag">Vegetarian</span><span class="menu-tag">Fan Favorite</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-img" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&q=80" alt="Breakfast Burger"/>
+        <div class="menu-info">
+          <h4>Verde Breakfast Burger</h4>
+          <p>Grass-fed beef patty, fried egg, white cheddar, caramelized onion, house aioli, brioche bun</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <span class="menu-price">$19</span>
+            <div class="menu-tags"><span class="menu-tag">Best Seller</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&q=80" alt="Shakshuka"/>
+        <div class="menu-info">
+          <h4>Spiced Tomato Shakshuka</h4>
+          <p>Poached eggs in roasted tomato-pepper sauce, feta, fresh herbs, grilled pita</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <span class="menu-price">$17</span>
+            <div class="menu-tags"><span class="menu-tag">Gluten-Free Option</span><span class="menu-tag">Vegetarian</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LUNCH -->
+    <div class="menu-grid" data-panel="lunch" style="display:none;">
+      <div class="menu-item">
+        <img class="menu-img" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=200&q=80" alt="Grain Bowl"/>
+        <div class="menu-info">
+          <h4>Harvest Grain Bowl</h4>
+          <p>Farro, roasted seasonal vegetables, pickled red onion, goat cheese, lemon-tahini dressing</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <span class="menu-price">$18</span>
+            <div class="menu-tags"><span class="menu-tag">Vegan Option</span><span class="menu-tag">Chef's Pick</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-img" src="https://images.unsplash.com/photo-1550304943-4f24f54ddde9?w=200&q=80" alt="Turkey Sandwich"/>
+        <div class="menu-info">
+          <h4>Smoked Turkey Club</h4>
+          <p>House-smoked turkey, applewood bacon, avocado, heirloom tomato, herb mayo, toasted sourdough</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <span class="menu-price">$17</span>
+            <div class="menu-tags"><span class="menu-tag">Best Seller</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-img" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=200&q=80" alt="Salad"/>
+        <div class="menu-info">
+          <h4>Roasted Beet & Arugula Salad</h4>
+          <p>Chioggia beets, baby arugula, candied walnuts, blood orange, shaved pecorino, white balsamic</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <span class="menu-price">$15</span>
+            <div class="menu-tags"><span class="menu-tag">Vegetarian</span><span class="menu-tag">Gluten-Free</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-img" src="https://images.unsplash.com/photo-1547592180-85f173990554?w=200&q=80" alt="Soup"/>
+        <div class="menu-info">
+          <h4>Roasted Tomato Bisque</h4>
+          <p>Slow-roasted heirloom tomatoes, fresh basil oil, crème fraîche, grilled sourdough croutons</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <span class="menu-price">$12</span>
+            <div class="menu-tags"><span class="menu-tag">Vegetarian</span><span class="menu-tag">Gluten-Free Option</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DINNER -->
+    <div class="menu-grid" data-panel="dinner" style="display:none;">
+      <div class="menu-item">
+        <img class="menu-img" src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=200&q=80" alt="Salmon"/>
+        <div class="menu-info">
+          <h4>Pan-Seared Scottish Salmon</h4>
+          <p>Crispy skin salmon, cauliflower purée, charred broccolini, caper-brown butter, microgreens</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <span class="menu-price">$34</span>
+            <div class="menu-tags"><span class="menu-tag">Gluten-Free</span><span class="menu-tag">Chef's Pick</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&q=80" alt="Steak"/>
+        <div class="menu-info">
+          <h4>Grass-Fed Flat Iron Steak</h4>
+          <p>8oz flat iron, herb chimichurri, roasted fingerling potatoes, seasonal greens, red wine jus</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <span class="menu-price">$42</span>
+            <div class="menu-tags"><span class="menu-tag">Best Seller</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-img" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=200&q=80" alt="Pasta"/>
+        <div class="menu-info">
+          <h4>House-Made Pappardelle</h4>
+          <p>Fresh pasta, wild mushroom ragù, truffle oil, aged parmesan, toasted breadcrumbs, fresh thyme</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <span class="menu-price">$28</span>
+            <div class="menu-tags"><span class="menu-tag">Vegetarian</span><span class="menu-tag">Fan Favorite</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-img" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&q=80" alt="Chicken"/>
+        <div class="menu-info">
+          <h4>Free-Range Half Chicken</h4>
+          <p>Herb-roasted half chicken, sweet potato mash, braised kale, pan drippings, pickled jalapeño</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <span class="menu-price">$31</span>
+            <div class="menu-tags"><span class="menu-tag">Gluten-Free</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESSERTS -->
+    <div class="menu-grid" data-panel="desserts" style="display:none;">
+      <div class="menu-item">
+        <img class="menu-img" src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=200&q=80" alt="Chocolate Cake"/>
+        <div class="menu-info">
+          <h4>Valrhona Chocolate Lava Cake</h4>
+          <p>Warm dark chocolate fondant, vanilla bean ice cream, salted caramel drizzle, candied hazelnuts</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <span class="menu-price">$13</span>
+            <div class="menu-tags"><span class="menu-tag">Vegetarian</span><span class="menu-tag">Best Seller</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-img" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=200&q=80" alt="Cheesecake"/>
+        <div class="menu-info">
+          <h4>Seasonal Fruit Pavlova</h4>
+          <p>Crisp meringue, whipped mascarpone, fresh seasonal berries, passion fruit curd, micro mint</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <span class="menu-price">$12</span>
+            <div class="menu-tags"><span class="menu-tag">Gluten-Free</span><span class="menu-tag">Chef's Pick</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-img" src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=200&q=80" alt="Ice Cream"/>
+        <div class="menu-info">
+          <h4>House-Churned Ice Cream</h4>
+          <p>Three scoops of rotating seasonal flavors — ask your server for today's selection</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <span class="menu-price">$9</span>
+            <div class="menu-tags"><span class="menu-tag">Gluten-Free</span><span class="menu-tag">Vegetarian</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-img" src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=200&q=80" alt="Tiramisu"/>
+        <div class="menu-info">
+          <h4>Espresso Tiramisu</h4>
+          <p>Ladyfingers soaked in our house espresso, mascarpone cream, dark cocoa, orange zest</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <span class="menu-price">$11</span>
+            <div class="menu-tags"><span class="menu-tag">Vegetarian</span><span class="menu-tag">Fan Favorite</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DRINKS -->
+    <div class="menu-grid" data-panel="drinks" style="display:none;">
+      <div class="menu-item">
+        <img class="menu-img" src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=200&q=80" alt="Cocktail"/>
+        <div class="menu-info">
+          <h4>Verde Garden Spritz</h4>
+          <p>House-infused cucumber gin, elderflower, fresh lime, tonic, garden herb garnish</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <span class="menu-price">$14</span>
+            <div class="menu-tags"><span class="menu-tag">Signature Cocktail</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-img" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&q=80" alt="Coffee"/>
+        <div class="menu-info">
+          <h4>Single-Origin Pour Over</h4>
+          <p>Rotating single-origin beans from our roaster partners — ask about today's origin and tasting notes</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <span class="menu-price">$6</span>
+            <div class="menu-tags"><span class="menu-tag">Vegan</span><span class="menu-tag">Best Seller</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-img" src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=200&q=80" alt="Wine"/>
+        <div class="menu-info">
+          <h4>Natural Wine by the Glass</h4>
+          <p>Rotating selection of biodynamic and natural wines — white, red, orange, and sparkling available</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <span class="menu-price">From $13</span>
+            <div class="menu-tags"><span class="menu-tag">Sommelier Selected</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-img" src="https://images.unsplash.com/photo-1593443320739-77f74939d0da?w=200&q=80" alt="Lemonade"/>
+        <div class="menu-info">
+          <h4>Seasonal House Lemonade</h4>
+          <p>Fresh-squeezed lemonade with rotating seasonal fruit syrups — lavender, hibiscus, or strawberry basil</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <span class="menu-price">$6</span>
+            <div class="menu-tags"><span class="menu-tag">Non-Alcoholic</span><span class="menu-tag">Vegan</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:36px;">
+      <a href="#" class="btn-primary" style="display:inline-block;">View Full Menu &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Menu tab switching
+  const tabs = document.querySelectorAll('.menu-tab');
+  const panels = document.querySelectorAll('.menu-grid[data-panel]');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      panels.forEach(p => {
+        p.style.display = p.dataset.panel === target ? 'grid' : 'none';
+      });
+    });
+  });
+</script>
+
+<!-- STORY -->
+<section class="story-section" id="story">
+  <div class="story-inner">
+    <div class="story-img-wrap">
+      <div class="story-img"></div>
+      <div class="story-badge">
+        <span class="num">2018</span>
+        <span class="label">Est. Austin, TX</span>
+      </div>
+    </div>
+    <div class="story-text">
+      <div class="section-header" style="text-align:left;margin-bottom:24px;">
+        <span class="section-tag">Our Story</span>
+        <h2 class="section-title">Born from a Love of Good Food & Community</h2>
+      </div>
+      <p>Verde Bistro & Café began as a small pop-up market stall run by Chef Maria Delgado and her partner Carlos. What started as weekend brunch service quickly grew into one of Austin's most beloved neighborhood restaurants.</p>
+      <p>We built Verde on a simple belief: food tastes better when you know where it came from. Every ingredient on our menu has a name, a farm, and a story — and we love sharing that story with you.</p>
+      <p>Today, Verde is home to a team of 24 passionate cooks, baristas, and hosts who show up every day to make sure your experience is exceptional.</p>
+      <div class="story-values">
+        <div class="story-val"><i class="fas fa-check-circle"></i> Locally & ethically sourced</div>
+        <div class="story-val"><i class="fas fa-check-circle"></i> No artificial additives</div>
+        <div class="story-val"><i class="fas fa-check-circle"></i> 100% compostable packaging</div>
+        <div class="story-val"><i class="fas fa-check-circle"></i> Living wage employer</div>
+        <div class="story-val"><i class="fas fa-check-circle"></i> Certified carbon neutral</div>
+        <div class="story-val"><i class="fas fa-check-circle"></i> Gluten-free options available</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="test-inner">
+    <div class="section-header">
+      <span class="section-tag">Guest Reviews</span>
+      <h2 class="section-title">What Our Guests Are Saying</h2>
+      <p class="section-sub">Don't just take our word for it — here's what Austin's food lovers have to say.</p>
+    </div>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"The avocado toast and cold brew combo changed my Saturday morning routine forever. Every single ingredient tastes so fresh. Verde is our family's go-to spot."</p>
+        <div class="test-author">
+          <div class="test-avatar">S</div>
+          <div><div class="test-name">Sarah M.</div><div class="test-role">Regular Guest · Austin, TX</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"We hosted our anniversary dinner here and it was absolutely perfect. The private room was gorgeous, the tasting menu was incredible, and the service was top-tier."</p>
+        <div class="test-author">
+          <div class="test-avatar">D</div>
+          <div><div class="test-name">David & Lisa T.</div><div class="test-role">Yelp Review · June 2024</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"As someone with celiac disease, finding a restaurant that genuinely cares about cross-contamination is rare. Verde's team is knowledgeable and accommodating every visit."</p>
+        <div class="test-author">
+          <div class="test-avatar">J</div>
+          <div><div class="test-name">Jamie R.</div><div class="test-role">Google Review · 2024</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
+  <div class="gallery-inner">
+    <div class="section-header">
+      <span class="section-tag">Our Space</span>
+      <h2 class="section-title">A Peek Inside Verde</h2>
+      <p class="section-sub">Follow us on Instagram @verdebistroatx for daily specials and behind-the-scenes moments.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-item"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Restaurant interior"/></div>
+      <div class="g-item"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&q=80" alt="Food dish"/></div>
+      <div class="g-item"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=80" alt="Pizza"/></div>
+      <div class="g-item"><img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&q=80" alt="Coffee"/></div>
+      <div class="g-item"><img src="https://images.unsplash.com/photo-1543353071-087092ec393a?w=400&q=80" alt="Dessert"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVATION -->
+<section class="reservation-section" id="reserve">
+  <div class="reservation-inner">
+    <h2>Reserve Your Table</h2>
+    <p>Join us for a memorable dining experience. We recommend booking at least 2 days in advance for weekends.</p>
+
+    <!-- Form -->
+    <form id="reservationForm">
+      <div class="res-form">
+        <input type="text" id="resFirstName" placeholder="First Name" required />
+        <input type="text" placeholder="Last Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <input type="tel" placeholder="Phone Number" required />
+        <input type="date" required />
+        <input type="time" required />
+        <select required>
+          <option value="">Number of Guests</option>
+          <option>1 Guest</option>
+          <option>2 Guests</option>
+          <option>3–4 Guests</option>
+          <option>5–6 Guests</option>
+          <option>7+ Guests (Private Dining)</option>
+        </select>
+        <select>
+          <option value="">Occasion (Optional)</option>
+          <option>Birthday</option>
+          <option>Anniversary</option>
+          <option>Business Dinner</option>
+          <option>Date Night</option>
+          <option>Family Gathering</option>
+        </select>
+        <textarea class="res-full" rows="3" placeholder="Special requests or dietary restrictions..." style="padding:13px 16px;border:2px solid #e8e8e8;border-radius:8px;font-size:14px;font-family:'Inter',sans-serif;outline:none;resize:vertical;"></textarea>
+      </div>
+      <button type="submit" class="res-submit">Confirm Reservation</button>
+    </form>
+
+    <!-- Success message (hidden by default) -->
+    <div id="reservationSuccess" style="display:none; text-align:center; padding: 20px 0;">
+      <div style="width:70px;height:70px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M7 16.5l6 6 12-12" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3 style="font-size:28px;color:var(--green-dark);margin-bottom:10px;">Reservation Confirmed!</h3>
+      <p style="color:var(--text-muted);font-size:16px;margin-bottom:6px;">Thank you, <strong id="resGuestName"></strong>! We've received your request.</p>
+      <p style="color:var(--text-muted);font-size:15px;">A confirmation will be sent to your email shortly. We look forward to seeing you at Verde Bistro!</p>
+      <a href="#" onclick="document.getElementById('reservationForm').reset();document.getElementById('reservationForm').style.display='grid';document.getElementById('reservationSuccess').style.display='none';return false;"
+         style="display:inline-block;margin-top:24px;color:var(--green);font-weight:600;font-size:14px;text-decoration:none;">
+        ← Make another reservation
+      </a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('reservationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const firstName = document.getElementById('resFirstName').value.trim() || 'Guest';
+      document.getElementById('resGuestName').textContent = firstName;
+      this.style.display = 'none';
+      document.getElementById('reservationSuccess').style.display = 'block';
+    });
+  </script>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo-text">Verde Bistro &amp; Café</div>
+      <p>Serving Austin's finest farm-to-table cuisine since 2018. Come hungry, leave happy.</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+        <a href="#"><i class="fab fa-yelp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Private Events</a></li>
+        <li><a href="#">Gift Cards</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Hours</h4>
+      <ul>
+        <li><a href="#">Mon–Tue: Closed</a></li>
+        <li><a href="#">Wed–Fri: 11:30am–9pm</a></li>
+        <li><a href="#">Saturday: 10am–10pm</a></li>
+        <li><a href="#">Sunday: 10am–4pm</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>214 South Congress Ave<br>Austin, TX 78704</span></div>
+      <div class="contact-item"><i class="fas fa-phone"></i><span>(512) 448-7200</span></div>
+      <div class="contact-item"><i class="fas fa-envelope"></i><span>hello@verdebistro.com</span></div>
+      <div class="contact-item"><i class="fab fa-google"></i><span>4.9 ★ on Google (840+ reviews)</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Verde Bistro &amp; Café. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+    <p>Website by <a href="#">JayR Digital</a> · Built with WordPress &amp; Elementor</p>
+  </div>
+</footer>
+
+</body>
+</html>
